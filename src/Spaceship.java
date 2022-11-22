@@ -15,4 +15,13 @@ public class Spaceship{
     public void hyperJump(int distance) {
 
     }
+
+    @Override
+    public String toString() {
+        return "Spaceship{" +
+                "body=" + body +
+                ", engine=" + engine +
+                ", tank=" + tank +
+                '}';
+    }
 }
