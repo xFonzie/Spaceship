@@ -4,8 +4,8 @@ public abstract class SpaceshipBuilder {
     public SpaceshipBuilder() {
         result = new Spaceship();
     }
-    public SpaceshipBuilder setBody(Body body) {
-        result.body = body;
+    public SpaceshipBuilder setHull(Hull hull) {
+        result.hull = hull;
         return this;
     }
 
@@ -23,16 +23,26 @@ public abstract class SpaceshipBuilder {
         result = new Spaceship();
     }
 
+    protected void validateSpaceship() throws MyExceptions.SpaceshipNotReady, MyExceptions.SpaceshipPartsNotSuitable {
+        validateParts();
+        if (result.engine.size > result.hull.engineMaxSize)
+            throw new MyExceptions.SpaceshipPartsNotSuitable("The engine is too big.");
+        if (result.tank.size > result.hull.tankMaxSize)
+            throw new MyExceptions.SpaceshipPartsNotSuitable("The tank is too big.");
+        if (result.tank.size + result.engine.size > result.hull.capacity)
+            throw new MyExceptions.SpaceshipPartsNotSuitable("The parts are too heavy.");
+    }
+
     protected void validateParts() throws MyExceptions.SpaceshipNotReady {
-        if (result.body == null || result.engine == null || result.tank == null) {
+        if (result.hull == null || result.engine == null || result.tank == null) {
             throw new MyExceptions.SpaceshipNotReady(("Spaceship missing some parts. " +
                     "Please, provide full set of parts. Current setup: " +
-                    "Body: %b, Engine: %b, Tank: %b").formatted(result.body, result.engine, result.tank));
+                    "Hull: %b, Engine: %b, Tank: %b").formatted(result.hull, result.engine, result.tank));
         }
     }
 
-    public Spaceship getSpaceship() throws MyExceptions.SpaceshipNotReady {
-        validateParts();
+    public Spaceship getSpaceship() throws MyExceptions.SpaceshipNotReady, MyExceptions.SpaceshipPartsNotSuitable {
+        validateSpaceship();
         return new Spaceship(result);
     }
 

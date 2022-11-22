@@ -1,12 +1,12 @@
-public class Body {
-    int weight,
-        capacity,
-        engineMaxSize,
-        tankMaxSize,
-        price;
+public class Hull {
+    protected int weight,
+            capacity,
+            engineMaxSize,
+            tankMaxSize,
+            price;
     Colour colour;
 
-    public Body(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour) {
+    public Hull(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour) {
         this.weight = weight;
         this.capacity = capacity;
         this.engineMaxSize = engineMaxSize;
@@ -15,7 +15,7 @@ public class Body {
         this.colour = colour;
     }
 
-    public Body(Body other) {
+    public Hull(Hull other) {
         this.weight = other.weight;
         this.capacity = other.capacity;
         this.engineMaxSize = other.engineMaxSize;
@@ -24,8 +24,8 @@ public class Body {
         this.colour = other.colour;
     }
 
-    public Body copy() {
-        return new Body(this);
+    public Hull copy() {
+        return new Hull(this);
     }
 
     @Override

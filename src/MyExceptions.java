@@ -10,4 +10,10 @@ public class MyExceptions {
             super(message);
         }
     }
+
+    public static class SpaceshipPartsNotSuitable extends Exception{
+        SpaceshipPartsNotSuitable(String message) {
+            super(message);
+        }
+    }
 }

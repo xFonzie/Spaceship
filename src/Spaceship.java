@@ -1,5 +1,5 @@
 public class Spaceship{
-    Body body;
+    Hull hull;
     Engine engine;
     Tank tank;
 
@@ -7,7 +7,7 @@ public class Spaceship{
 
     /** @noinspection IncompleteCopyConstructor*/
     public Spaceship(Spaceship other) {
-        this.body = other.body.copy();
+        this.hull = other.hull.copy();
         this.engine = other.engine.copy();
         this.tank = other.tank.copy();
     }
@@ -19,7 +19,7 @@ public class Spaceship{
     @Override
     public String toString() {
         return "Spaceship{" +
-                "body=" + body +
+                "hull=" + hull +
                 ", engine=" + engine +
                 ", tank=" + tank +
                 '}';

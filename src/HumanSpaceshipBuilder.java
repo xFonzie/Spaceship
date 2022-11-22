@@ -3,8 +3,8 @@ public class HumanSpaceshipBuilder extends SpaceshipBuilder {
         int sum = 0;
         if (result.engine != null)
             sum += result.engine.price;
-        if (result.body != null)
-            sum += result.body.price;
+        if (result.hull != null)
+            sum += result.hull.price;
         if (result.tank != null)
             sum += result.tank.price;
         return sum;
