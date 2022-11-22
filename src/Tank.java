@@ -21,6 +21,10 @@ public class Tank {
         this.fuelQuality = other.fuelQuality;
     }
 
+    public Tank copy() {
+        return new Tank(this);
+    }
+
     @Override
     public String toString() {
         return "Tank{" +

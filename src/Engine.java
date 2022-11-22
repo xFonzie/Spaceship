@@ -24,6 +24,10 @@ public class Engine {
         this.durability = other.durability;
     }
 
+    public Engine copy() {
+        return new Engine(this);
+    }
+
     @Override
     public String toString() {
         return "Engine{" +

@@ -5,10 +5,11 @@ public class Spaceship{
 
     Spaceship() {}
 
+    /** @noinspection IncompleteCopyConstructor*/
     public Spaceship(Spaceship other) {
-        this.body = other.body;
-        this.engine = other.engine;
-        this.tank = other.tank;
+        this.body = other.body.copy();
+        this.engine = other.engine.copy();
+        this.tank = other.tank.copy();
     }
 
     public void hyperJump(int distance) {
