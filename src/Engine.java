@@ -1,4 +1,4 @@
-public class Engine {
+public class Engine extends EngineCompound {
     int size,
         power,
         maxVelocity,
@@ -26,6 +26,35 @@ public class Engine {
 
     public Engine copy() {
         return new Engine(this);
+    }
+
+    public ConcreteEngineModule addModule(ConcreteEngineModule module) {
+        module.inner = this;
+        return module;
+    }
+
+    public int getVelocity() {
+        return this.maxVelocity;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public int getHyperJumpLength() {
+        return this.hyperJumpLength;
+    }
+
+    public int getPower() {
+        return this.power;
+    }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public int getDurability() {
+        return this.durability;
     }
 
     @Override

@@ -1,4 +1,4 @@
-public class Tank {
+public class Tank extends TankCompound {
     int size;
     int capacity;
     int price;
@@ -23,6 +23,32 @@ public class Tank {
 
     public Tank copy() {
         return new Tank(this);
+    }
+
+    public int getCapacity() {
+        return this.capacity;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+
+    public int getFuelQuality() {
+        return this.fuelQuality;
+    }
+
+    public int getDurability() {
+        return this.durability;
+    }
+
+    @Override
+    boolean isBaseTank() {
+        return true;
+    }
+
+    public TankCompound addModule(TankCompound module) {
+        module.inner = this;
+        return module;
     }
 
     @Override

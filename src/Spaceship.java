@@ -1,15 +1,14 @@
 public class Spaceship{
     Hull hull;
-    Engine engine;
-    Tank tank;
+    EngineCompound engine;
+    TankCompound tank;
 
-    Spaceship() {}
-
-    /** @noinspection IncompleteCopyConstructor*/
-    public Spaceship(Spaceship other) {
-        this.hull = other.hull.copy();
-        this.engine = other.engine.copy();
-        this.tank = other.tank.copy();
+    public Spaceship copy() {
+        Spaceship copy = new Spaceship();
+        copy.hull = hull.copy();
+        copy.engine = engine.copy();
+        copy.tank = tank.copy();
+        return copy;
     }
 
     public void hyperJump(int distance) {

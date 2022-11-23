@@ -12,7 +12,7 @@ public class Main {
             s.setTank(t);
             Spaceship s2 = s.getSpaceship();
             System.out.println(s.report());
-            System.out.println("" + s1.tank.size + " " + s2.tank.size);
+            System.out.println("" + s1.tank.getSize() + " " + s2.tank.getSize());
         } catch (MyExceptions.SpaceshipNotReady | MyExceptions.SpaceshipPartsNotSuitable ex) {
             System.out.println(ex.getMessage());
         }
