@@ -1,10 +1,16 @@
-public class Hull implements Module{
+public class Hull implements Part{
     protected int weight,
             capacity,
             engineMaxSize,
             tankMaxSize,
             price;
     Colour colour;
+    Manufacturer manufacturer;
+
+    public Hull setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+        return this;
+    }
 
     public Hull() {}
 
@@ -25,10 +31,15 @@ public class Hull implements Module{
         this.tankMaxSize = other.tankMaxSize;
         this.price = other.price;
         this.colour = other.colour;
+        this.manufacturer = other.manufacturer;
     }
 
     public Hull copy() {
         return new Hull(this);
+    }
+
+    public String getProperties() {
+        return this.toString();
     }
 
     @Override
@@ -41,5 +52,9 @@ public class Hull implements Module{
                 ", price=" + price +
                 ", colour=" + colour +
                 '}';
+    }
+
+    public void setColor(Colour colour) {
+        this.colour = colour;
     }
 }

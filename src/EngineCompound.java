@@ -1,5 +1,11 @@
 public class EngineCompound implements Module {
     EngineCompound inner;
+    Manufacturer manufacturer;
+
+    public EngineCompound setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+        return this;
+    }
 
     int getVelocity() {
         if (inner == null)
@@ -57,6 +63,10 @@ public class EngineCompound implements Module {
     /** Copy function with return value in such structure: inner.copy().addModule(new *name of the class*)*/
     public EngineCompound copy() {
         return inner.copy().addModule(new EngineCompound());
+    }
+
+    public String getProperties() {
+        return this.toString();
     }
 
     public String toString() {

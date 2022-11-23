@@ -1,10 +1,15 @@
-public class Engine extends EngineCompound {
+public class Engine extends EngineCompound implements Part{
     int size,
         power,
         maxVelocity,
         hyperJumpLength,
         price,
         durability;
+
+    public Engine setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+        return this;
+    }
 
     public Engine() {}
     public Engine setProperties(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability) {
@@ -57,6 +62,18 @@ public class Engine extends EngineCompound {
 
     public int getDurability() {
         return this.durability;
+    }
+
+    public int numberOfModules() {
+        return 1;
+    }
+
+    public boolean isBaseEngine() {
+        return true;
+    }
+
+    public String getProperties() {
+        return this.toString();
     }
 
     @Override

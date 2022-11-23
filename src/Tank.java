@@ -1,9 +1,15 @@
-public class Tank extends TankCompound {
+public class Tank extends TankCompound implements Part{
     int size;
     int capacity;
     int price;
     int durability;
     int fuelQuality;
+    int fuelLevel;
+
+    public Tank setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+        return this;
+    }
 
     public Tank() {}
 
@@ -22,6 +28,30 @@ public class Tank extends TankCompound {
         this.price = other.price;
         this.durability = other.durability;
         this.fuelQuality = other.fuelQuality;
+        this.fuelLevel = other.fuelLevel;
+    }
+
+    public int getFuelLevel() {
+        return fuelLevel;
+    }
+
+    public Tank setFuelLevel(int fuelLevel) {
+        this.fuelLevel = fuelLevel;
+        return this;
+    }
+
+    public Tank fillTank() {
+        this.fuelLevel = this.capacity;
+        return this;
+    }
+
+    public Tank useFuel(int fuel){
+        if (fuelLevel - fuel < 0) {
+            throw new IllegalArgumentException("Not enough fuel");
+        }
+
+        fuelLevel -= fuel;
+        return this;
     }
 
     @Override
@@ -62,6 +92,10 @@ public class Tank extends TankCompound {
     public TankCompound addModule(TankCompound module) {
         module.inner = this;
         return module;
+    }
+
+    public String getProperties() {
+        return this.toString();
     }
 
     @Override

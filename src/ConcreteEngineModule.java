@@ -33,7 +33,7 @@ public class ConcreteEngineModule extends EngineCompound implements Module {
 
     @Override
     public String toString() {
-        return "EngineModule{" +
+        return "ConcreteEngineModule{" +
                 "inner=" + inner +
                 ", velocity=" + getVelocity() +
                 ", price=" + getPrice() +

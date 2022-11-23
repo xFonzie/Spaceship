@@ -8,7 +8,7 @@ public class ConcreteTankModule2 extends TankCompound implements Module{
     }
 
     @Override
-    TankCompound copy() {
+    public TankCompound copy() {
         return inner.copy().addModule(new ConcreteTankModule2());
     }
 
@@ -21,5 +21,13 @@ public class ConcreteTankModule2 extends TankCompound implements Module{
     @Override
     boolean isBaseTank() {
         return false;
+    }
+
+    public String toString() {
+        return "ConcreteTankModule2{" +
+                "inner=" + inner +
+                ", capacity=" + getCapacity() +
+                ", price=" + getPrice() +
+                '}';
     }
 }

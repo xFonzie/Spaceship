@@ -18,4 +18,12 @@ public class ConcreteTankModule extends TankCompound implements Module{
     public TankCompound copy() {
         return inner.copy().addModule(new ConcreteTankModule());
     }
+
+    public String toString() {
+        return "ConcreteTankModule{" +
+                "inner=" + inner +
+                ", capacity=" + getCapacity() +
+                ", price=" + getPrice() +
+                '}';
+    }
 }

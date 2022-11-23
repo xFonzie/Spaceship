@@ -1,8 +1,16 @@
-public abstract class TankCompound implements Module {
+public class TankCompound implements Module {
     TankCompound inner;
+    Manufacturer manufacturer;
+
+    public TankCompound setManufacturer(Manufacturer manufacturer) {
+        this.manufacturer = manufacturer;
+        return this;
+    }
 
     /** Copy function with return value in such structure: inner.copy().addModule(new *name of the class*)*/
-    abstract TankCompound copy();
+    public TankCompound copy() {
+        return inner.copy().addModule(new TankCompound());
+    }
 
     public TankCompound getInner() {
         return inner;
@@ -56,8 +64,12 @@ public abstract class TankCompound implements Module {
         return module;
     }
 
+    public String getProperties() {
+        return this.toString();
+    }
+
     public String toString() {
-        return "Tank{" +
+        return "TankCompound{" +
                 "size=" + getSize() +
                 ", capacity=" + getCapacity() +
                 ", price=" + getPrice() +
@@ -65,5 +77,25 @@ public abstract class TankCompound implements Module {
                 ", fuelQuality=" + getFuelQuality() +
                 ", numberOfModules=" + numberOfModules() +
                 '}';
+    }
+
+    public TankCompound fillTank() {
+        if (inner == null)
+            return this;
+        inner.fillTank();
+        return this;
+    }
+
+    public int getFuelLevel() {
+        if (inner == null)
+            return 0;
+        return inner.getFuelLevel();
+    }
+
+    public TankCompound useFuel(int i) {
+        if (inner == null)
+            return this;
+        inner.useFuel(i);
+        return this;
     }
 }

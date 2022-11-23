@@ -16,4 +16,12 @@ public class ConcreteEngineModule2 extends EngineCompound implements Module{
     public EngineCompound copy() {
         return inner.copy().addModule(new ConcreteEngineModule2());
     }
+
+    public String toString() {
+        return "ConcreteEngineModule2{" +
+                "inner=" + inner +
+                ", velocity=" + getVelocity() +
+                ", price=" + getPrice() +
+                '}';
+    }
 }
