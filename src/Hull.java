@@ -1,4 +1,4 @@
-public class Hull {
+public class Hull implements Module{
     protected int weight,
             capacity,
             engineMaxSize,
@@ -6,13 +6,16 @@ public class Hull {
             price;
     Colour colour;
 
-    public Hull(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour) {
+    public Hull() {}
+
+    public Hull setProperties(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour) {
         this.weight = weight;
         this.capacity = capacity;
         this.engineMaxSize = engineMaxSize;
         this.tankMaxSize = tankMaxSize;
         this.price = price;
         this.colour = colour;
+        return this;
     }
 
     public Hull(Hull other) {

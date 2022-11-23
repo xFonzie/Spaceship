@@ -1,20 +1,25 @@
 public class Main {
     public static void main(String[] args) {
         AlienSpaceshipBuilder s = new AlienSpaceshipBuilder();
-        Tank t = new Tank(1, 1, 1, 1, 1);
-        Hull b = new Hull(1, 1, 1, 1, 1, Colour.RED);
-        Engine e = new Engine(1, 100, 1, 1, 1, 1);
+        PartsFactory tankFactory = new TankFactory();
+        Tank tank = (Tank) tankFactory.createPart();
+        tank.setProperties(80, 100, 1200, 100, 4);
 
-        s.setHull(b).setEngine(e).setTank(t);
+        PartsFactory engineFactory = new EngineFactory();
+        Engine engine = (Engine) engineFactory.createPart();
+        engine.setProperties(100, 1000, 100, 15, 15000, 100);
+
+        PartsFactory hullFactory = new HullFactory();
+        Hull hull = (Hull) hullFactory.createPart();
+        hull.setProperties(60, 300, 150, 150, 90000, Colour.RED);
+
         try {
-            Spaceship s1 = s.getSpaceship();
-            t.size = 2;
-            s.setTank(t);
-            Spaceship s2 = s.getSpaceship();
-            System.out.println(s.report());
-            System.out.println("" + s1.tank.getSize() + " " + s2.tank.getSize());
-        } catch (MyExceptions.SpaceshipNotReady | MyExceptions.SpaceshipPartsNotSuitable ex) {
-            System.out.println(ex.getMessage());
+            s.setTank(tank).setEngine(engine).setHull(hull);
+            Spaceship spaceship = s.getSpaceship();
+            System.out.println(spaceship);
+        } catch (MyExceptions.SpaceshipNotReady | MyExceptions.SpaceshipPartsNotSuitable spaceshipNotReady) {
+            spaceshipNotReady.printStackTrace();
         }
+
     }
 }

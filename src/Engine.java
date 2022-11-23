@@ -6,13 +6,15 @@ public class Engine extends EngineCompound {
         price,
         durability;
 
-    public Engine(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability) {
+    public Engine() {}
+    public Engine setProperties(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability) {
         this.size = size;
         this.power = power;
         this.maxVelocity = maxVelocity;
         this.hyperJumpLength = hyperJumpLength;
         this.price = price;
         this.durability = durability;
+        return this;
     }
 
     public Engine(Engine other) {

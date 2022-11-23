@@ -1,4 +1,4 @@
-public abstract class TankCompound {
+public abstract class TankCompound implements Module {
     TankCompound inner;
 
     /** Copy function with return value in such structure: inner.copy().addModule(new *name of the class*)*/

@@ -13,7 +13,7 @@ public class ConcreteEngineModule2 extends EngineCompound implements Module{
         return inner.getPrice() + price;
     }
 
-    EngineCompound copy() {
+    public EngineCompound copy() {
         return inner.copy().addModule(new ConcreteEngineModule2());
     }
 }

@@ -27,7 +27,7 @@ public class ConcreteEngineModule extends EngineCompound implements Module {
     }
 
     @Override
-    EngineCompound copy() {
+    public EngineCompound copy() {
         return inner.copy().addModule(new ConcreteEngineModule());
     }
 

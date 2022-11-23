@@ -1,4 +1,4 @@
-public abstract class EngineCompound {
+public class EngineCompound implements Module {
     EngineCompound inner;
 
     int getVelocity() {
@@ -55,7 +55,9 @@ public abstract class EngineCompound {
     }
 
     /** Copy function with return value in such structure: inner.copy().addModule(new *name of the class*)*/
-    abstract EngineCompound copy();
+    public EngineCompound copy() {
+        return inner.copy().addModule(new EngineCompound());
+    }
 
     public String toString() {
         return "Engine{" +
