@@ -1,9 +1,9 @@
-public class Hull implements Part{
-    protected int weight,
-            capacity,
-            engineMaxSize,
-            tankMaxSize,
-            price;
+public class Hull {
+    private int weight,
+                capacity,
+                engineMaxSize,
+                tankMaxSize,
+                price;
     Colour colour;
     Manufacturer manufacturer;
 
@@ -36,6 +36,46 @@ public class Hull implements Part{
 
     public Hull copy() {
         return new Hull(this);
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    protected void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    protected void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getEngineMaxSize() {
+        return engineMaxSize;
+    }
+
+    protected void setEngineMaxSize(int engineMaxSize) {
+        this.engineMaxSize = engineMaxSize;
+    }
+
+    public int getTankMaxSize() {
+        return tankMaxSize;
+    }
+
+    protected void setTankMaxSize(int tankMaxSize) {
+        this.tankMaxSize = tankMaxSize;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    protected void setPrice(int price) {
+        this.price = price;
     }
 
     public String getProperties() {

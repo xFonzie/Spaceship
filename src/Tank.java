@@ -1,24 +1,21 @@
-public class Tank extends TankCompound implements Part{
-    int size;
-    int capacity;
-    int price;
-    int durability;
-    int fuelQuality;
-    int fuelLevel;
-
-    public Tank setManufacturer(Manufacturer manufacturer) {
-        this.manufacturer = manufacturer;
-        return this;
-    }
+public class Tank implements TankCompound {
+    private int size,
+                capacity,
+                price,
+                durability,
+                fuelQuality,
+                fuelLevel;
+    private Manufacturer manufacturer;
 
     public Tank() {}
 
-    public Tank setProperties(int size, int capacity, int price, int durability, int fuelQuality) {
+    public Tank setProperties(int size, int capacity, int price, int durability, int fuelQuality, Manufacturer manufacturer) {
         this.size = size;
         this.capacity = capacity;
         this.price = price;
         this.durability = durability;
         this.fuelQuality = fuelQuality;
+        this.manufacturer = manufacturer;
         return this;
     }
 
@@ -29,19 +26,23 @@ public class Tank extends TankCompound implements Part{
         this.durability = other.durability;
         this.fuelQuality = other.fuelQuality;
         this.fuelLevel = other.fuelLevel;
+        this.manufacturer = other.manufacturer;
     }
 
-    public int getFuelLevel() {
-        return fuelLevel;
+    public Tank copy() {
+        return new Tank(this);
     }
 
-    public Tank setFuelLevel(int fuelLevel) {
+    public Tank setFuel(int fuelLevel) {
+        if (fuelLevel > this.getCapacity()) {
+            throw new IllegalArgumentException("Fuel level cannot be greater than capacity");
+        }
         this.fuelLevel = fuelLevel;
         return this;
     }
 
     public Tank fillTank() {
-        this.fuelLevel = this.capacity;
+        this.setFuel(this.getCapacity());
         return this;
     }
 
@@ -54,44 +55,33 @@ public class Tank extends TankCompound implements Part{
         return this;
     }
 
-    @Override
-    public Tank copy() {
-        return new Tank(this);
+    public int getSize() {
+        return this.size;
     }
 
-    @Override
     public int getCapacity() {
         return this.capacity;
     }
 
-    @Override
     public int getPrice() {
         return this.price;
     }
 
-    @Override
-    public int getFuelQuality() {
-        return this.fuelQuality;
-    }
-
-    @Override
     public int getDurability() {
         return this.durability;
     }
 
-    @Override
-    int getSize() {
-        return this.size;
+    public int getFuelQuality() {
+        return this.fuelQuality;
     }
 
-    @Override
-    boolean isBaseTank() {
-        return true;
+    public int getFuelLevel() {
+        return fuelLevel;
     }
 
-    public TankCompound addModule(TankCompound module) {
-        module.inner = this;
-        return module;
+
+    public int numberOfModules() {
+        return 1;
     }
 
     public String getProperties() {

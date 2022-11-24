@@ -1,12 +1,12 @@
-public class HumanSpaceshipBuilder extends SpaceshipBuilder {
+public class HumanSpaceshipBuilder extends Spaceship.SpaceshipBuilder {
     int getCurrentPrice() {
         int sum = 0;
-        if (result.engine != null)
-            sum += result.engine.getPrice();
-        if (result.hull != null)
-            sum += result.hull.price;
-        if (result.tank != null)
-            sum += result.tank.getPrice();
+        if (result.getEngine() != null)
+            sum += result.getEngine().getPrice();
+        if (result.getHull() != null)
+            sum += result.getHull().getPrice();
+        if (result.getTank() != null)
+            sum += result.getTank().getPrice();
         return sum;
     }
 

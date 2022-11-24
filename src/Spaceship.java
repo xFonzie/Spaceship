@@ -1,7 +1,7 @@
 public class Spaceship{
-    Hull hull;
-    EngineCompound engine;
-    TankCompound tank;
+    private Hull hull;
+    private Engine engine;
+    private Tank tank;
     boolean isFlying = false;
 
     public Spaceship copy() {
@@ -39,6 +39,8 @@ public class Spaceship{
             throw new MyExceptions.HyperJumpError("Spaceship is not flying");
         if (tank.getFuelLevel() < distance)
             throw new IllegalArgumentException("Not enough fuel");
+        if (engine.getHyperJumpLength() < distance)
+            throw new IllegalArgumentException("Not enough hyper jump length");
         tank.useFuel(distance);
     }
 
@@ -55,4 +57,88 @@ public class Spaceship{
                 ", tank=" + tank +
                 '}';
     }
+
+    public Hull getHull() {
+        return hull;
+    }
+
+    protected void setHull(Hull hull) {
+        this.hull = hull;
+    }
+
+    public Engine getEngine() {
+        return engine;
+    }
+
+    protected void setEngine(Engine engine) {
+        this.engine = engine;
+    }
+
+    public Tank getTank() {
+        return tank;
+    }
+
+    protected void setTank(Tank tank) {
+        this.tank = tank;
+    }
+
+    public static abstract class SpaceshipBuilder {
+        protected Spaceship result;
+
+        public SpaceshipBuilder() {
+            result = new Spaceship();
+        }
+
+        public SpaceshipBuilder setHull(Hull hull) {
+            result.hull = hull;
+            return this;
+        }
+
+        public SpaceshipBuilder setEngine(Engine engine) {
+            result.engine = engine;
+            return this;
+        }
+
+        public SpaceshipBuilder setTank(Tank tank) {
+            result.tank = tank;
+            return this;
+        }
+
+        public void reset() {
+            result = new Spaceship();
+        }
+
+        protected void validateSpaceship() throws MyExceptions.SpaceshipNotReady, MyExceptions.SpaceshipPartsNotSuitable {
+            validateParts();
+            if (result.engine.getSize() > result.hull.getEngineMaxSize())
+                throw new MyExceptions.SpaceshipPartsNotSuitable("The engine is too big.");
+            if (result.tank.getSize() > result.hull.getTankMaxSize())
+                throw new MyExceptions.SpaceshipPartsNotSuitable("The tank is too big.");
+            if (result.hull.getWeight() + result.tank.getSize() + result.engine.getSize() > result.hull.getCapacity())
+                throw new MyExceptions.SpaceshipPartsNotSuitable("The parts are too heavy.");
+        }
+
+        protected void validateParts() throws MyExceptions.SpaceshipNotReady {
+            if (result.hull == null || result.engine == null || result.tank == null) {
+                throw new MyExceptions.SpaceshipNotReady("Spaceship missing some parts. " +
+                        "Please, provide full set of parts. Current setup: " +
+                        "Hull: " + (result.hull != null) +
+                        ", Engine: " + (result.engine != null) +
+                        ", Tank: " + (result.tank != null));
+            }
+        }
+
+        public Spaceship getSpaceship() throws MyExceptions.SpaceshipNotReady, MyExceptions.SpaceshipPartsNotSuitable {
+            validateSpaceship();
+            return result.copy();
+        }
+
+        @Override
+        public String toString() {
+            return "SpaceshipBuilder{" +
+                    "result=" + result +
+                    '}';
+        }
+    }
+
 }

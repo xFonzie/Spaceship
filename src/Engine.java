@@ -1,24 +1,22 @@
-public class Engine extends EngineCompound implements Part{
+public class Engine {
     int size,
         power,
         maxVelocity,
         hyperJumpLength,
         price,
         durability;
-
-    public Engine setManufacturer(Manufacturer manufacturer) {
-        this.manufacturer = manufacturer;
-        return this;
-    }
+    Manufacturer manufacturer;
 
     public Engine() {}
-    public Engine setProperties(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability) {
+
+    public Engine setProperties(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability, Manufacturer manufacturer) {
         this.size = size;
         this.power = power;
         this.maxVelocity = maxVelocity;
         this.hyperJumpLength = hyperJumpLength;
         this.price = price;
         this.durability = durability;
+        this.manufacturer = manufacturer;
         return this;
     }
 
@@ -29,15 +27,11 @@ public class Engine extends EngineCompound implements Part{
         this.hyperJumpLength = other.hyperJumpLength;
         this.price = other.price;
         this.durability = other.durability;
+        this.manufacturer = other.manufacturer;
     }
 
     public Engine copy() {
         return new Engine(this);
-    }
-
-    public ConcreteEngineModule addModule(ConcreteEngineModule module) {
-        module.inner = this;
-        return module;
     }
 
     public int getVelocity() {

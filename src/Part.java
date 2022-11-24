@@ -1,3 +1,6 @@
-public interface Part {
-    String getProperties();
+public abstract class Part {
+    int weight,
+        price;
+
+    abstract String getProperties();
 }
