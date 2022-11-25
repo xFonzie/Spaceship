@@ -18,13 +18,15 @@ public class Main {
         try {
             Spaceship spaceship = builder.getSpaceship();
             spaceship.fillTank();
-            System.out.println(spaceship.getTank().getFuelLevel());
 
             spaceship.takeOff();
             spaceship.hyperJump(100);
             spaceship.land();
 
             System.out.println(spaceship);
+            System.out.println(spaceship.getEngine().numberOfModules());
+            System.out.println(spaceship.getTank().numberOfModules());
+            System.out.println(spaceship.getHull().numberOfModules());
         } catch (Exception e) {
             System.out.println("" + e);
         }
