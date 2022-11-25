@@ -1,4 +1,4 @@
-public interface TankCompound {
+public interface TankCompound extends Part {
     int getSize();
     int getCapacity();
     int getPrice();
@@ -6,5 +6,5 @@ public interface TankCompound {
     int getFuelQuality();
     int getFuelLevel();
 
-    int numberOfModules();
+    TankCompound copy();
 }

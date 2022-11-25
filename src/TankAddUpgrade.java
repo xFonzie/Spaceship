@@ -16,6 +16,10 @@ public class TankAddUpgrade extends TankModule{
         return inner.getPrice() + price;
     }
 
+    public TankAddUpgrade copy() {
+        return new TankAddUpgrade(inner.copy(), manufacturer);
+    }
+
     @Override
     public String toString() {
         return "ConcTankModule2{" +

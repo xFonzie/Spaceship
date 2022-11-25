@@ -1,6 +1,5 @@
-public abstract class Part {
-    int weight,
-        price;
+public interface Part {
+    String getProperties();
 
-    abstract String getProperties();
+    int numberOfModules();
 }

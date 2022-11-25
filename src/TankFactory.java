@@ -1,5 +1,15 @@
-import java.util.List;
+public class TankFactory extends PartFactory {
 
-public class TankFactory extends CompoundFactory {
+    @Override
+    public Tank createPart() {
+        return new Tank();
+    }
 
+    public Tank addAddUpgrade(Tank tank, Manufacturer manufacturer) {
+        return new TankAddUpgrade(tank, manufacturer);
+    }
+
+    public Tank addMultUpgrade(Tank tank, Manufacturer manufacturer) {
+        return new TankMultUpgrade(tank, manufacturer);
+    }
 }

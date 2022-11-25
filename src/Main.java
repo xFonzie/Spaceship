@@ -1,12 +1,33 @@
 public class Main {
     public static void main(String[] args) {
-        Tank tank = new Tank().setProperties(1, 100, 100, 100, 100, Manufacturer.A);
-        tank = new TankMultUpgrade(tank, Manufacturer.B);
-        tank = new TankAddUpgrade(tank, Manufacturer.C);
+        TankFactory tankFactory = new TankFactory();
+        Tank tank = tankFactory.createPart().setProperties(100, 100, 100, 100, 100, Manufacturer.A);
+        tank = tankFactory.addAddUpgrade(tank, Manufacturer.B);
+        tank = tankFactory.addMultUpgrade(tank, Manufacturer.C);
 
+        EngineFactory engineFactory = new EngineFactory();
+        Engine engine = engineFactory.createPart().setProperties(100,100, 100, 100, 100, 100, Manufacturer.A);
+        engine = engineFactory.addJumper(engine, Manufacturer.B);
+        engine = engineFactory.addPowerer(engine, Manufacturer.C);
 
-        tank.setFuel(210);
-        System.out.println(tank.getFuelLevel());
-        System.out.println(tank.getCapacity());
+        HullFactory hullFactory = new HullFactory();
+        Hull hull = hullFactory.createPart().setProperties(100, 10000, 100, 100, 100, Colour.RED, Manufacturer.A);
+
+        HumanSpaceshipBuilder builder = new HumanSpaceshipBuilder();
+        builder.setHull(hull).setEngine(engine).setTank(tank);
+        try {
+            Spaceship spaceship = builder.getSpaceship();
+            spaceship.fillTank();
+            System.out.println(spaceship.getTank().getFuelLevel());
+
+            spaceship.takeOff();
+            spaceship.hyperJump(100);
+            spaceship.land();
+
+            System.out.println(spaceship);
+        } catch (Exception e) {
+            System.out.println("" + e);
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-public class Engine {
+public class Engine implements EngineCompound {
     int size,
         power,
         maxVelocity,

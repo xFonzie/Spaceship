@@ -2,7 +2,7 @@ public class Spaceship{
     private Hull hull;
     private Engine engine;
     private Tank tank;
-    boolean isFlying = false;
+    private boolean isFlying = false;
 
     public Spaceship copy() {
         Spaceship copy = new Spaceship();
@@ -17,7 +17,7 @@ public class Spaceship{
     }
 
     public Spaceship fillTank() {
-        tank.fillTank();
+        tank.setFuel(tank.getCapacity());
         return this;
     }
 
@@ -80,6 +80,10 @@ public class Spaceship{
 
     protected void setTank(Tank tank) {
         this.tank = tank;
+    }
+
+    public boolean isFlying() {
+        return isFlying;
     }
 
     public static abstract class SpaceshipBuilder {

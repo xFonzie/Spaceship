@@ -1,4 +1,4 @@
-public class Hull {
+public class Hull implements Part {
     private int weight,
                 capacity,
                 engineMaxSize,
@@ -7,20 +7,16 @@ public class Hull {
     Colour colour;
     Manufacturer manufacturer;
 
-    public Hull setManufacturer(Manufacturer manufacturer) {
-        this.manufacturer = manufacturer;
-        return this;
-    }
-
     public Hull() {}
 
-    public Hull setProperties(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour) {
+    public Hull setProperties(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour, Manufacturer manufacturer) {
         this.weight = weight;
         this.capacity = capacity;
         this.engineMaxSize = engineMaxSize;
         this.tankMaxSize = tankMaxSize;
         this.price = price;
         this.colour = colour;
+        this.manufacturer = manufacturer;
         return this;
     }
 
@@ -80,6 +76,10 @@ public class Hull {
 
     public String getProperties() {
         return this.toString();
+    }
+
+    public int numberOfModules() {
+        return 1;
     }
 
     @Override

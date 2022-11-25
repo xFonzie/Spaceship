@@ -4,7 +4,6 @@ public class TankMultUpgrade extends TankModule{
         super(wrappee, manufacturer);
     }
 
-    @Override
     public int getPrice() {
         int price = 10;
 
@@ -13,6 +12,10 @@ public class TankMultUpgrade extends TankModule{
 
     public int getCapacity() {
         return (int) (inner.getCapacity() * 1.1);
+    }
+
+    public TankMultUpgrade copy() {
+        return new TankMultUpgrade(inner.copy(), manufacturer);
     }
 
     @Override

@@ -1,4 +1,4 @@
-public interface EngineCompound {
+public interface EngineCompound extends Part {
     int getSize();
     int getPower();
     int getVelocity();
@@ -6,5 +6,5 @@ public interface EngineCompound {
     int getPrice();
     int getDurability();
 
-    int numberOfModules();
+    EngineCompound copy();
 }

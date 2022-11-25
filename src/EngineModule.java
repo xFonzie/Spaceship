@@ -1,10 +1,34 @@
-public abstract class EngineModule extends Engine implements Module {
+public abstract class EngineModule extends Engine {
     Manufacturer manufacturer;
-    EngineModule inner;
+    Engine inner;
 
-    public EngineModule(EngineModule inner, Manufacturer manufacturer) {
+    public EngineModule(Engine inner, Manufacturer manufacturer) {
         this.inner = inner;
         this.manufacturer = manufacturer;
+    }
+
+    public int getDurability() {
+        return inner.getDurability();
+    }
+
+    public int getSize() {
+        return inner.getSize();
+    }
+
+    public int getVelocity() {
+        return inner.getVelocity();
+    }
+
+    public int getPrice() {
+        return inner.getPrice();
+    }
+
+    public int getHyperJumpLength() {
+        return inner.getHyperJumpLength();
+    }
+
+    public int getPower() {
+        return inner.getPower();
     }
 
     public int numberOfModules() {
@@ -14,6 +38,8 @@ public abstract class EngineModule extends Engine implements Module {
     public String getProperties() {
         return this.toString();
     }
+
+    public abstract EngineModule copy();
 
     public abstract String toString();
 }

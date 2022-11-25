@@ -34,24 +34,16 @@ public class Tank implements TankCompound {
     }
 
     public Tank setFuel(int fuelLevel) {
-        if (fuelLevel > this.getCapacity()) {
-            throw new IllegalArgumentException("Fuel level cannot be greater than capacity");
-        }
         this.fuelLevel = fuelLevel;
         return this;
     }
 
-    public Tank fillTank() {
-        this.setFuel(this.getCapacity());
-        return this;
-    }
-
     public Tank useFuel(int fuel){
-        if (fuelLevel - fuel < 0) {
+        if (this.getFuelLevel() - fuel < 0) {
             throw new IllegalArgumentException("Not enough fuel");
         }
 
-        fuelLevel -= fuel;
+        this.setFuel(this.getFuelLevel() - fuel);
         return this;
     }
 
