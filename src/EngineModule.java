@@ -1,4 +1,4 @@
-public abstract class EngineModule extends Engine {
+public abstract class EngineModule implements EngineCompound {
     Manufacturer manufacturer;
     Engine inner;
 

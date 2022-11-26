@@ -6,7 +6,7 @@ public class Main {
         tank = tankFactory.addMultUpgrade(tank, Manufacturer.C);
 
         EngineFactory engineFactory = new EngineFactory();
-        Engine engine = engineFactory.createPart().setProperties(100,100, 100, 100, 100, 100, Manufacturer.A);
+        Engine engine = engineFactory.createPart().setProperties(100,10000, 100, 100, 100, 100, Manufacturer.A);
         engine = engineFactory.addJumper(engine, Manufacturer.B);
         engine = engineFactory.addPowerer(engine, Manufacturer.C);
 

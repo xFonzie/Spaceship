@@ -1,4 +1,4 @@
-public abstract class TankModule extends Tank {
+public abstract class TankModule implements TankCompound {
     protected Manufacturer manufacturer;
     protected Tank inner;
 
@@ -31,9 +31,12 @@ public abstract class TankModule extends Tank {
         return inner.getFuelLevel();
     }
 
-    public Tank setFuel(int fuel) {
-        inner.setFuel(fuel);
-        return this;
+    public TankCompound setFuel(int fuel) {
+        return inner.setFuel(fuel);
+    }
+
+    public TankCompound useFuel(int fuel) {
+        return inner.useFuel(fuel);
     }
 
     public int numberOfModules() {

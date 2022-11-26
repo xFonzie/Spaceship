@@ -7,4 +7,6 @@ public interface TankCompound extends Part {
     int getFuelLevel();
 
     TankCompound copy();
+    TankCompound setFuel(int fuel);
+    TankCompound useFuel(int fuel);
 }

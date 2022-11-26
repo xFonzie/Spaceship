@@ -1,7 +1,7 @@
 public class Spaceship{
     private Hull hull;
-    private Engine engine;
-    private Tank tank;
+    private EngineCompound engine;
+    private TankCompound tank;
     private boolean isFlying = false;
 
     public Spaceship copy() {
@@ -72,7 +72,7 @@ public class Spaceship{
         this.hull = hull;
     }
 
-    public Engine getEngine() {
+    public EngineCompound getEngine() {
         return engine;
     }
 
@@ -80,7 +80,7 @@ public class Spaceship{
         this.engine = engine;
     }
 
-    public Tank getTank() {
+    public TankCompound getTank() {
         return tank;
     }
 
