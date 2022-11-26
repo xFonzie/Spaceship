@@ -24,9 +24,15 @@ public class Spaceship{
     public Spaceship takeOff() {
         if (tank.getFuelLevel() < 1)
             throw new IllegalArgumentException("Not enough fuel");
+        if (engine.getPower() < this.getWeight())
+            throw new IllegalArgumentException("Not enough power");
         isFlying = true;
         tank.useFuel(1);
         return this;
+    }
+
+    private int getWeight() {
+        return hull.getWeight() + engine.getSize() + tank.getSize();
     }
 
     public Spaceship land() {
