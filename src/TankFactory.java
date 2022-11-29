@@ -5,11 +5,11 @@ public class TankFactory extends PartFactory {
         return new Tank();
     }
 
-    public Tank addAddUpgrade(Tank tank, Manufacturer manufacturer) {
+    public TankCompound addAddUpgrade(TankCompound tank, Manufacturer manufacturer) {
         return new TankAddUpgrade(tank, manufacturer);
     }
 
-    public Tank addMultUpgrade(Tank tank, Manufacturer manufacturer) {
+    public TankCompound addMultUpgrade(TankCompound tank, Manufacturer manufacturer) {
         return new TankMultUpgrade(tank, manufacturer);
     }
 }

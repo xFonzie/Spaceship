@@ -1,5 +1,5 @@
 public class EnginePowerer extends EngineModule {
-    public EnginePowerer(Engine inner, Manufacturer manufacturer) {
+    public EnginePowerer(EngineCompound inner, Manufacturer manufacturer) {
         super(inner, manufacturer);
     }
 

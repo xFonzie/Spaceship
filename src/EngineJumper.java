@@ -1,5 +1,5 @@
 public class EngineJumper extends EngineModule{
-    public EngineJumper(Engine inner, Manufacturer manufacturer) {
+    public EngineJumper(EngineCompound inner, Manufacturer manufacturer) {
         super(inner, manufacturer);
     }
 

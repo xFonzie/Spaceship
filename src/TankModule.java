@@ -1,8 +1,8 @@
 public abstract class TankModule implements TankCompound {
     protected Manufacturer manufacturer;
-    protected Tank inner;
+    protected TankCompound inner;
 
-    public TankModule(Tank inner, Manufacturer manufacturer) {
+    public TankModule(TankCompound inner, Manufacturer manufacturer) {
         this.inner = inner;
         this.manufacturer = manufacturer;
     }

@@ -1,12 +1,12 @@
 public class Main {
     public static void main(String[] args) {
         TankFactory tankFactory = new TankFactory();
-        Tank tank = tankFactory.createPart().setProperties(100, 100, 100, 100, 100, Manufacturer.A);
+        TankCompound tank = tankFactory.createPart().setProperties(100, 100, 100, 100, 100, Manufacturer.A);
         tank = tankFactory.addAddUpgrade(tank, Manufacturer.B);
         tank = tankFactory.addMultUpgrade(tank, Manufacturer.C);
 
         EngineFactory engineFactory = new EngineFactory();
-        Engine engine = engineFactory.createPart().setProperties(100,10000, 100, 100, 100, 100, Manufacturer.A);
+        EngineCompound engine = engineFactory.createPart().setProperties(100,10000, 100, 100, 100, 100, Manufacturer.A);
         engine = engineFactory.addJumper(engine, Manufacturer.B);
         engine = engineFactory.addPowerer(engine, Manufacturer.C);
 

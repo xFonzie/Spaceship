@@ -1,8 +1,8 @@
 public abstract class EngineModule implements EngineCompound {
     Manufacturer manufacturer;
-    Engine inner;
+    EngineCompound inner;
 
-    public EngineModule(Engine inner, Manufacturer manufacturer) {
+    public EngineModule(EngineCompound inner, Manufacturer manufacturer) {
         this.inner = inner;
         this.manufacturer = manufacturer;
     }

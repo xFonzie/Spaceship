@@ -104,12 +104,12 @@ public class Spaceship{
             return this;
         }
 
-        public SpaceshipBuilder setEngine(Engine engine) {
+        public SpaceshipBuilder setEngine(EngineCompound engine) {
             result.engine = engine;
             return this;
         }
 
-        public SpaceshipBuilder setTank(Tank tank) {
+        public SpaceshipBuilder setTank(TankCompound tank) {
             result.tank = tank;
             return this;
         }

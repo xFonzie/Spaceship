@@ -1,6 +1,6 @@
 public class TankAddUpgrade extends TankModule{
 
-    public TankAddUpgrade(Tank wrappee, Manufacturer manufacturer) {
+    public TankAddUpgrade(TankCompound wrappee, Manufacturer manufacturer) {
         super(wrappee, manufacturer);
     }
 
