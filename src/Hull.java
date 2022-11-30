@@ -7,9 +7,7 @@ public class Hull implements Part {
     Colour colour;
     Manufacturer manufacturer;
 
-    public Hull() {}
-
-    public Hull setProperties(int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour, Manufacturer manufacturer) {
+    public Hull (int weight, int capacity, int engineMaxSize, int tankMaxSize, int price, Colour colour, Manufacturer manufacturer) {
         this.weight = weight;
         this.capacity = capacity;
         this.engineMaxSize = engineMaxSize;
@@ -17,7 +15,6 @@ public class Hull implements Part {
         this.price = price;
         this.colour = colour;
         this.manufacturer = manufacturer;
-        return this;
     }
 
     public Hull(Hull other) {

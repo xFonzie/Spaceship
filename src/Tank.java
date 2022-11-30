@@ -7,16 +7,13 @@ public class Tank implements TankCompound {
                 fuelLevel;
     private Manufacturer manufacturer;
 
-    public Tank() {}
-
-    public Tank setProperties(int size, int capacity, int price, int durability, int fuelQuality, Manufacturer manufacturer) {
+    public Tank (int size, int capacity, int price, int durability, int fuelQuality, Manufacturer manufacturer) {
         this.size = size;
         this.capacity = capacity;
         this.price = price;
         this.durability = durability;
         this.fuelQuality = fuelQuality;
         this.manufacturer = manufacturer;
-        return this;
     }
 
     public Tank(Tank other) {

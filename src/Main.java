@@ -1,17 +1,17 @@
 public class Main {
     public static void main(String[] args) {
         TankFactory tankFactory = new TankFactory();
-        TankCompound tank = tankFactory.createPart().setProperties(100, 100, 100, 100, 100, Manufacturer.A);
+        TankCompound tank = tankFactory.createPart(100, 100, 100, 100, 100, Manufacturer.A);
         tank = tankFactory.addAddUpgrade(tank, Manufacturer.B);
         tank = tankFactory.addMultUpgrade(tank, Manufacturer.C);
 
         EngineFactory engineFactory = new EngineFactory();
-        EngineCompound engine = engineFactory.createPart().setProperties(100,10000, 100, 100, 100, 100, Manufacturer.A);
+        EngineCompound engine = engineFactory.createPart(100,10000, 100, 100, 100, 100, Manufacturer.A);
         engine = engineFactory.addJumper(engine, Manufacturer.B);
         engine = engineFactory.addPowerer(engine, Manufacturer.C);
 
         HullFactory hullFactory = new HullFactory();
-        Hull hull = hullFactory.createPart().setProperties(100, 10000, 100, 100, 100, Colour.RED, Manufacturer.A);
+        Hull hull = hullFactory.createPart(100, 10000, 100, 100, 100, Colour.RED, Manufacturer.A);
 
         HumanSpaceshipBuilder builder = new HumanSpaceshipBuilder();
         builder.setHull(hull).setEngine(engine).setTank(tank);

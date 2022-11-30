@@ -1,8 +1,6 @@
-public class EngineFactory extends PartFactory {
-
-    @Override
-    public Engine createPart() {
-        return new Engine();
+public class EngineFactory {
+    public Engine createPart(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability, Manufacturer manufacturer) {
+        return new Engine(size, power, maxVelocity, hyperJumpLength, price, durability, manufacturer);
     }
 
     public EngineCompound addJumper(EngineCompound engine, Manufacturer manufacturer) {

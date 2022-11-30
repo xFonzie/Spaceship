@@ -1,8 +1,7 @@
-public class TankFactory extends PartFactory {
+public class TankFactory {
 
-    @Override
-    public Tank createPart() {
-        return new Tank();
+    public Tank createPart(int size, int capacity, int price, int durability, int fuelQuality, Manufacturer manufacturer) {
+        return new Tank(size, capacity, price, durability, fuelQuality, manufacturer);
     }
 
     public TankCompound addAddUpgrade(TankCompound tank, Manufacturer manufacturer) {

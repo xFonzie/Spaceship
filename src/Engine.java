@@ -7,9 +7,7 @@ public class Engine implements EngineCompound {
         durability;
     Manufacturer manufacturer;
 
-    public Engine() {}
-
-    public Engine setProperties(int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability, Manufacturer manufacturer) {
+    public Engine (int size, int power, int maxVelocity, int hyperJumpLength, int price, int durability, Manufacturer manufacturer) {
         this.size = size;
         this.power = power;
         this.maxVelocity = maxVelocity;
@@ -17,7 +15,6 @@ public class Engine implements EngineCompound {
         this.price = price;
         this.durability = durability;
         this.manufacturer = manufacturer;
-        return this;
     }
 
     public Engine(Engine other) {
